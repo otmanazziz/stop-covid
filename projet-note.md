@@ -19,9 +19,9 @@ obligatoirement :
 
 - Une section « design patterns », donnant une motivation des choix d’architecture (et des patterns choisis), et leur explication en s’aidant de diagrammes appropriés et adaptés au degré de précision et au type d’explication. Donc des diagrammes de classe, mais pas que cela, et pas de plats de spaghettis générés automatiquement représentant tout le code.
   
-- Une section « éthique » où vous détaillerez les problématiques d'une application de suivi de contacts comme StopCovid en terme de vie privée : quels sont les enjeux pour la vie privée d'une telle application ? Quelles sont les solutions techniques existantes et comment répondent-elles aux questions de vie privée ? Quels sont les avantages et inconvénients des approches possibles ? La solution technique utilisée dans votre application est-elle satisfaisante vis-à-vis de ces questions ?
+- Une section « éthique » où vous détaillerez les problématiques d'une application de suivi de contacts comme StopCovid en terme de vie privée : quels sont les enjeux pour la vie privée d'une telle application ? Quelles sont les solutions techniques existantes et comment répondent-elles aux questions de vie privée ? Quels sont les avantages et inconvénients des approches possibles ? La solution technique utilisée dans votre application est-elle satisfaisante vis-à-vis de ces questions ? Quelles alternatives au suivi de contacts par proximité auraient pu être mises en œuvre (ou ont été mises en œuvre dans d'autres pays que la France), et en quoi ces autres solutions changent les problématiques de vie privée ?
 
-  On ne vous demande pas de prendre position (la question « êtes-vous pour ou contre StopCovid ? » est hors-sujet ici), mais de détailler les enjeux et les solutions possibles.
+  On ne vous demande pas de prendre position (la question « êtes-vous pour ou contre StopCovid ? » est hors-sujet ici), mais de détailler les enjeux et les solutions possibles. Autrement dit : posez les bonnes question, mais ne cherchez pas forcément à y répondre lorsque vous estimez que ce n'est pas de votre domaine de compétences.
 
   Quelques sources d'inspiration :
 
