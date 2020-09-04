@@ -35,6 +35,8 @@ https://calendar.google.com/calendar/embed?src=bujrk2sa90qim7u9okmo405b6s%40grou
 
 * Demi-promo D+E+F : [Lionel Medini](https://perso.liris.cnrs.fr/lionel.medini/), [Thomas Bonis](https://liris.cnrs.fr/page-membre/thomas-bonis), [Paul Iannetta](https://perso.ens-lyon.fr/paul.iannetta/research/) (email : prénom.nom@ens-lyon.fr)
 
+Sur certains créneaux (voir le calendrier), [Emmanuel Coquery](https://perso.liris.cnrs.fr/ecoquery/dokuwiki/) et [Thibault Batal](https://www.magames.fr/) (email : initiale du prénom, point, nom, @magames.fr).
+
 (Lorsque ce n'est pas précisé, l'email prenom.nom@univ-lyon1.fr fonctionne)
 
 ## Nouvelles du cours
