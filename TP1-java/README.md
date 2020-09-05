@@ -153,8 +153,7 @@ commande.
 
 Le squelette contient ces classes :
 
-- `view.JfxView` : une classe gérant l'interface graphique de
-  sélection des critères pour sélectionner les CV dans une base de CV.
+- `view.JfxView` : une classe gérant l'interface graphique du simulateur de l'application StopCovid
 
 - `view.StopCovidUserView` : une classe qui représente (affiche et manipule)
   les propriétés d'un utilisateur.
