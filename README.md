@@ -64,7 +64,9 @@ Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invit
 
 ### Intro du cours
 
-À venir
+* Vidéo : [<img src="https://mediacenter.univ-lyon1.fr/videos/MEDIA200905205340171/preview.jpg" width="128" height="72" />](https://mediacenter.univ-lyon1.fr/videos/?video=MEDIA200905205340171)
+
+* Transparents : [00-intro-cours-slides.pdf](00-intro-cours-slides.pdf) (version imprimable : [00-intro-cours-handout.pdf](00-intro-cours-handout.pdf))
 
 ### Introduction au génie logiciel
 
