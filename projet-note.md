@@ -27,7 +27,7 @@ obligatoirement :
 
   * Un article en français qui explique les principes des protocoles ROBERT (derrière StopCovid) et la solution Exposure Notification (proposée par Apple et Google, fortement inspirée de DP-3T) : [A propos des protocoles de traçage pour le Covid-19 : Google/Apple vs. INRIA/Fraunhofer](https://linuxfr.org/users/codefish/journaux/a-propos-des-protocoles-de-tracage-pour-le-covid-19-google-apple-vs-inria-fraunhofer)
 
-  * Une explication du protocole ROBERT : [Un protocole de suivides contacts rapprochés,rigoureux et respectueuxde la vie privée.](https://www.inria.fr/sites/default/files/2020-04/Pr%C3%A9sentation%20du%20protocole%20Robert.pdf)
+  * Une explication du protocole ROBERT : [Un protocole de suivi des contacts rapprochés,rigoureux et respectueux de la vie privée.](https://www.inria.fr/sites/default/files/2020-04/Pr%C3%A9sentation%20du%20protocole%20Robert.pdf)
 
   * Le site [https://risques-tracage.fr/](risques-tracage.fr), « Le traçage anonyme, dangereux oxymore; Analyse de risques à destination des non-spécialistes »
 
@@ -83,8 +83,8 @@ Les projets seront rendus en binômes. La date limite est indiquée sur
 la page d'accueil du cours.
 
 **Ajoutez les utilisateurs @thomas.bonis, @fadam, @LIONEL.MEDINI,
-@matthieu.moy, @vgallet, @piannetta avec le niveau de privilège
-"reporter" à votre projet sur la forge**
+@matthieu.moy, @piannetta, @EMMANUEL.COQUERY, @tbatal avec le niveau de privilège
+"reporter" (ou plus, mais pas "guest") à votre projet sur la forge**
 
 Dans la feuille TOMUSS du cours, indiquez l'URL de votre projet (qui
 doit ressembler à `https://forge.univ-lyon1.fr/<login>/mif01-2020`). Il

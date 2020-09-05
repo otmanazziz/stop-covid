@@ -6,10 +6,9 @@
 
 * Emploi du temps : à venir 
   Attention : les groupes ne sont pas correctement entrés dans ADE.
-  Utilisez la ressource "M1 informatique" pour voir l'emploi du temps
-  (pas grA, grB, ...).
+  Utilisez la ressource "M1 informatique" plus votre groupe pour voir l'emploi du temps.
 
-* Rendu du TP noté : dimanche 20 septembre 2020 à 23h59. Voir
+* Rendu du TP noté : vous devez avoir rempli le champ URL de TOMUSS avant jeudi 10 septembre 2020. Le rendu final est le dimanche 20 septembre 2020 à 23h59. Voir
   [projet-note.md](projet-note.md) pour un récapitulatif des consignes.
 
 * Examen : date à venir. 1h30 (sauf tiers-temps) Consignes : Seules 5
@@ -25,7 +24,7 @@ Barème : 50% examen / 50% TP.
 
 ## Groupes
 
-La promotion est divisée en deux moitiés : A+B+C et D+E+F (cf. TOMUSS). La plupart du temps (mais pas toujours), quand la moitié A+B+C est en gestion de projet et génie logiciel, l'autre moitié est en programmation avancée, et vice-versa. Chaque moitié est divisée en groupes : A1, A2, B1, B2, ... L'affectation des groupes aux salles est faite dans cet agenda :
+La promotion est divisée en deux moitiés : A+B+C et D+E+F (cf. TOMUSS) et explications dans [HYBRIDE.md](HYBRIDE.md). L'affectation des groupes aux salles est faite dans cet agenda :
 
 https://calendar.google.com/calendar/embed?src=bujrk2sa90qim7u9okmo405b6s%40group.calendar.google.com&ctz=Europe%2FParis
 
@@ -39,13 +38,29 @@ Sur certains créneaux (voir le calendrier), [Emmanuel Coquery](https://perso.li
 
 (Lorsque ce n'est pas précisé, l'email prenom.nom@univ-lyon1.fr fonctionne)
 
+## Enseignement à distance
+
+Pour une explication du fonctionnement du cours avec distanciel et présentiel, lire impérativement [HYBRIDE.md](HYBRIDE.md).
+
+Les CM de cette matière sont majoritairement en 100 % distanciel avec des vidéos disponibles à l'avance. Vous pouvez interagir avec les enseignants sur ce canal : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End). Dans la mesure du possible, l'enseignant sera disponible en direct sur le tchat pendant les créneaux sur ADE.
+
+Pour les TP et TD, vous pouvez interagir avec les enseignants sur ce canal : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp). Nous l'utiliserons peut-être pour passer des messages à tout le monde pendant les créneaux, donc ayez le tchat ouvert en permanence même si vous êtes en présentiel. Vous devrez utiliser la messagerie instantanée si vous n'êtes pas inscrit officiellement à l'UE et devez suivre à distance, mais vous pouvez aussi l'utiliser pour poser vos questions ou suivre les discussions des autres étudianst si vous êtes physiquement présents dans les salles du Nautibus.
+
+Nous utiliserons aussi le canal [mif01](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FH3zDKk) pour les informations générales sur le cours. Vous pouvez également l'utiliser pour poser vos questions sur l'organisation du cours.
+
+Dans tous les cas, inscrivez-vous aux 3 canaux : [mif01](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FH3zDKk), [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End), [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp).
+
+`chat-info` utilise le logiciel [RocketChat](https://rocket.chat/), vous pouvez l'utiliser dans un navigateur, et/ou installer le client RocketChat sur votre PC, Mac ou smartphone.
+
 ## Nouvelles du cours
 
 Les informations de dernière minute sont disponibles ici :
 [NEWS.md](NEWS.md). Les informations importantes seront envoyées par
 email, ce fichier en contient une copie.
 
-## CM1 1: Introduction
+## CM1 1: Introduction (100 % distance, vidéo libre-service)
+
+Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
 
 ### Intro du cours
 
@@ -59,9 +74,13 @@ email, ce fichier en contient une copie.
   
 ## TP1 1 : Mise en route Java
 
+* Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
+
 * [TP1-java/README.md](TP1-java/README.md)
 
-## CM 2 : Outillage : Maven, la forge Gitlab, intégration continue, coding style ...
+## CM 2 : Outillage : Maven, la forge Gitlab, intégration continue, coding style ...  (100 % distance, vidéo libre-service)
+
+Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
 
 ### Maven, Forge, Intégration Continue
 
@@ -72,9 +91,13 @@ email, ce fichier en contient une copie.
 
 ## TP 2 :
 
+* Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
+
 * [TP2-outils/README.md](TP2-outils/README.md)
 
-## CM 3, 4 & 5 : Coding style, Design-patterns
+## CM 3, 4 & 5 : Coding style, Design-patterns  (100 % distance, visio)
+
+Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
 
 ### Coding style
 
@@ -89,13 +112,15 @@ email, ce fichier en contient une copie.
 
 ## TP 3 & 4 : Design patterns & refactoring
 
+* Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
+
 * [TP3-patterns/README.md](TP3-patterns/README.md) et de l'aide avec [MVC](TP3-patterns/mvc.md)
 
-## CM 5 : Specifications et cas d'utilisation
+## CM 5 : Spécifications et cas d'utilisation (informations à venir)
 
 * [05-UML-CU.pdf](05-UML-CU.pdf)
 
-## CM 6 : Test
+## CM 6 : Test (hybride "comodal", des étudiants en présentiel et d'autres en visio)
 
 À venir.
 <!-- 
@@ -106,7 +131,9 @@ email, ce fichier en contient une copie.
   edition](https://www.tricentis.com/wp-content/uploads/2018/01/20180119_Software-Fails-Watch_Small_Web.pdf)
   présenté pendant le cours. -->
 
-## CM 7 : Métaprogrammation, introduction à l'agilité
+## CM 7 : Métaprogrammation, introduction à l'agilité (100 % distance, vidéo libre-service)
+
+Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
 
 ### Métaprogrammation
 
@@ -122,36 +149,46 @@ email, ce fichier en contient une copie.
 * Transparents : [08-agilite-slides.pdf](08-agilite-slides.pdf)
   (version imprimable : [08-agilite-handout.pdf](08-agilite-handout.pdf))
 
-### Intervention de Levent Acar
+### Intervention de Levent Acar (100 % distance, vidéo libre-service)
 
 À venir.
 
 ## TD 1 : Cas d'utilisation et coding styles
+
+* Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
 
 * [TD1-uc-style/TD_UseCaseFffound_et_style.pdf](TD1-uc-style/TD_UseCaseFffound_et_style.pdf)
   (corrigé : [TD1-uc-style/TD_UseCaseFffound_et_style_correction.pdf](TD1-uc-style/TD_UseCaseFffound_et_style_correction.pdf))
 
 ## TP 6 & 7 : tests
 
+* Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
+
 * [TP4-tests/README.md](TP4-tests/README.md)
 
-## CM 8 : Agilité (suite)
+## CM 8 : Agilité (suite) (100 % distance, vidéo libre-service)
+
+Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
 
 * Transparents : [08-agilite-slides.pdf](08-agilite-slides.pdf)
   (version imprimable : [08-agilite-handout.pdf](08-agilite-handout.pdf))
 
-## TD 2: Paper4Scrum
+## TD 2: Design-patterns
+
+* Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
 
 * [TD2-scrum/ExerciceAgile.pdf](TD2-scrum/ExerciceAgile.pdf)
 
-## CM 8 : Éthique
+## CM 8 : Éthique (100 % distance, vidéo libre-service)
+
+Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
 
 * Vidéo : Vidéo : [<img src="https://mediacenter.univ-lyon1.fr/videos/MEDIA200817132953478/preview.jpg" width="128" height="72" />](https://mediacenter.univ-lyon1.fr/videos/?video=MEDIA200817132953478)
 
 * Transparents : [05-ethics-slides.pdf](05-ethics-slides.pdf)
   (version imprimable : [05-ethics-handout.pdf](05-ethics-handout.pdf))
 
-## CM 10: Gestion de projet en entreprise
+## CM 10: Gestion de projet en entreprise (hybride "comodal", des étudiants en présentiel et d'autres en visio)
 
 Intervention de Jonathan BENZAQUEN.
 

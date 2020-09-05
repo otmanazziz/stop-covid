@@ -13,7 +13,7 @@ En pratique :
 
 * La promotion est divisée en deux demi-promotions : A+B+C et D+E+F, elle-même divisée en groupes de TPs (A1, A2, B1, B2, ...). Votre groupe est le même pour les deux matières MIF02 et MIF01. Vous voyez votre groupe dans TOMUSS, sous « etape-MIF010 M1 Informatique ».
 
-* La connaissance de votre groupe vous permet d’accéder à votre emploi du temps dans ADE. Si vous faites partie du groupe B1, vous devrez sélectionner simultanément « M1 INFORMATIQUE » et « M1 INFO B »  pour avoir les créneaux spécifiques au groupe et les créneaux promo entière. Par exemple, lundi 7/9, les groupes A, B et C enchaînent réunion de rentrée, puis TP MIF02, puis TP MIF01, puis CM MIF01, puis CM de MIF02, et un dernier CM de MIF01. Les groupes D, E, F ont réunion de rentrée, puis CM MIF01, puis CM de MIF02, puis TP MIF01 puis TP MIF02 et un dernier CM de MIF01.
+* La connaissance de votre groupe vous permet d’accéder à votre emploi du temps dans ADE. Si vous faites partie du groupe B1, vous devrez sélectionner simultanément « M1 INFORMATIQUE » et « M1 INFO B » pour avoir les créneaux spécifiques au groupe et les créneaux promo entière. Par exemple, lundi 7/9, les groupes A, B et C enchaînent réunion de rentrée, puis TP MIF02, puis TP MIF01, puis CM MIF01, puis CM de MIF02, et un dernier CM de MIF01. Les groupes D, E, F ont réunion de rentrée, puis CM MIF01, puis CM de MIF02, puis TP MIF01 puis TP MIF02 et un dernier CM de MIF01.
 
 * Les groupes B et E sont parfois affectés à des salles de TD pour les TP, merci aux étudiants de ces groupes de venir avec leur machine personnelle pour les TPs.
 
