@@ -1,4 +1,4 @@
-# Rendu du Mini Projet "Sélection de CV"
+# Rendu du Mini Projet "StopCovid"
 
 **Votre travail devra être rendu sous forme d’un projet déposé sur la Forge Lyon 1, au plus tard le dimanche 22 septembre 2019 à 23h59.**
 
