@@ -90,7 +90,7 @@ projet (Configuration → Membres).
 
 Nous allons utiliser le dépôt Git du cours comme base pour votre
 projet. Ouvrez la page
-[https://forge.univ-lyon1.fr/matthieu.moy/m1if01-2019](https://forge.univ-lyon1.fr/matthieu.moy/m1if01-2019),
+[https://forge.univ-lyon1.fr/matthieu.moy/mif01-2020](https://forge.univ-lyon1.fr/matthieu.moy/mif01-2020),
 et cliquez sur le bouton « fork ». Ce bouton vous permet de récupérer
 une copie du projet sur votre espace de la forge.
 
@@ -106,7 +106,7 @@ le bouton « save changes ».
 
 Pour vérifier que votre projet est bien privé (indispensable),
 retournez à la page d'accueil de votre projet
-(`https://forge.univ-lyon1.fr/votre.nom/m1if01-2019`) et copiez l'URL.
+(`https://forge.univ-lyon1.fr/votre.nom/mif01-2020`) et copiez l'URL.
 Ouvrez une fenêtre de navigation privée
 (<kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> sous Firefox,
 <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> sous Chrom{e,ium}), et collez l'URL de votre projet
