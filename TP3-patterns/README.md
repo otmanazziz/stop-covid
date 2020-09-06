@@ -11,7 +11,7 @@ Ceci devrait vous prendre 2 ou 3 séances.
 Ce TP est organisé en deux étapes :
 
 - une ré-ingénierie (refactoring) du code utilisé dans les premiers TP afin de mieux structurer le projet et de le rendre plus modulaire,
-- l’extension des fonctionnalités pour réaliser un jeu plus complet.
+- l’extension des fonctionnalités pour réaliser un programme plus complet.
 
 Le plus simple est de partir répertoire `stopcovid` fourni dans votre archive. Si vous le souhaitez, vous pouvez aussi repartir d'un répertoire vierge, mais attention à ne rien oublier au passage !
 
@@ -52,7 +52,7 @@ Il va vous falloir réorganiser le code en appliquant les patrons de conception 
 Vous allez maintenant redéfinir la structure de base de l’application.
 Mettez en place un pattern MVC pour :
 
-- séparer le métier (l'algorithme de sélection des CV) et l’affichage
+- séparer le métier (la logique de l'application) et l’affichage
   des éléments (boutons et champs textes),
 
 - propager les changements du modèle métier (statut des utilisateurs, ...) dans la vue,

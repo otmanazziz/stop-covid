@@ -42,10 +42,8 @@ Il y a bien plus de questions à vous poser, comme par exemple :
 Nous proposons ici d'appliquer le MVC tel qu'il est présenté dans les
 transparents, donc appliquer le découpage suivant :
 
-* Le modèle définit les données (compétences requises, choix de la
-  stratégie de sélection des CV, ...) et les méthodes qui les
-  manipulent (la sélection de CV à proprement parler, le chargement de
-  la liste des CV, ...). Tout doit être pensé en terme de données
+* Le modèle définit les données (gestion des utilisateurs, de leurs contacts, ...) et les méthodes qui les
+  manipulent (simuler une rencontre entre utilisateurs, ...). Tout doit être pensé en terme de données
   logiques, indépendamment du rendu graphique, donc aucune dépendance
   vers le toolkit graphique (JavaFX). Le modèle doit pouvoir être
   réutilisable sans aucune modification pour une application en mode
