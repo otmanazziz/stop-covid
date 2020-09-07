@@ -101,14 +101,11 @@ Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invit
 
 ## CM 3, 4 & 5 : Coding style, Design-patterns  (100 % distance, visio)
 
-Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End)
+<!-- Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End) -->
 
-### Coding style
-
-* Vidéo : [<img src="https://mediacenter.univ-lyon1.fr/videos/MEDIA200812151525896/preview.jpg" width="128" height="72" />](https://mediacenter.univ-lyon1.fr/videos/?video=MEDIA200812151525896)
-
-* Transparents : [03-coding-style-slides.pdf](03-coding-style-slides.pdf)
-  (version imprimable : [03-coding-style-handout.pdf](03-coding-style-handout.pdf))
+[https://univ-lyon1.webex.com/univ-lyon1/j.php?MTID=m862e860573cafecb0aa80f5b16e9119a](En direct sur Webex)
+Rejoindre par téléphone
++33-1851-48835 Code d'accès participant 145 919 11
 
 ### Design patterns
 
@@ -119,6 +116,13 @@ Discussion par messagerie instantanée : [mif01-cm](https://go.rocket.chat/invit
 * Discussion par messagerie instantanée : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp)
 
 * [TP3-patterns/README.md](TP3-patterns/README.md) et de l'aide avec [MVC](TP3-patterns/mvc.md)
+
+### Coding style en fin de CM4
+
+* Vidéo : [<img src="https://mediacenter.univ-lyon1.fr/videos/MEDIA200812151525896/preview.jpg" width="128" height="72" />](https://mediacenter.univ-lyon1.fr/videos/?video=MEDIA200812151525896)
+
+* Transparents : [03-coding-style-slides.pdf](03-coding-style-slides.pdf)
+  (version imprimable : [03-coding-style-handout.pdf](03-coding-style-handout.pdf))
 
 ## CM 5 : Spécifications et cas d'utilisation (informations à venir)
 
