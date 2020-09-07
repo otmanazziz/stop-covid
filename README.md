@@ -202,13 +202,13 @@ This repository contains course material and code skeletons. The
 recommended way to use it is:
 
 * Fork the project from
-  https://forge.univ-lyon1.fr/matthieu.moy/m1if01-2019 and make it private.
+  https://forge.univ-lyon1.fr/matthieu.moy/mif01-2020 and make it private.
   
 * Clone your fork and work in the fork.
 
 To get updates from the teacher's repository, run once :
 
-    git remote add moy https://forge.univ-lyon1.fr/matthieu.moy/m1if01-2019.git
+    git remote add moy https://forge.univ-lyon1.fr/matthieu.moy/mif01-2020.git
 
 Then, each time you want to fetch updates, run :
 

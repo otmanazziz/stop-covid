@@ -8,7 +8,7 @@ beaucoup trop entremêlées :
 * Les deux sont gérées dans les mêmes classes, dans le paquet `view`. Ces classes ont donc
   trop de responsabilités.
   
-* La logique métier (la sélection des candidats) est codée dans des
+* La logique métier (la gestion des contacts) est codée dans des
   « callbacks » de l'interface graphique, écrit au même endroit que la
   création des éléments de l'interface. Si on souhaite modifier
   l'interface, il faudra donc modifier des méthodes contenant
@@ -20,8 +20,7 @@ beaucoup trop entremêlées :
   
 * À l'inverse, la logique métier fait beaucoup d'appels à l'API JavaFX
   pour aller chercher des informations directement dans l'interface
-  graphique. Par exemple, on parcours la liste des compétences
-  requises avec `for (final Node l : contacts.getChildren()) { server.declareRisky(((Label) l).getText());`,
+  graphique. Par exemple, on parcours la liste des contacts avec `for (final Node l : contacts.getChildren()) { server.declareRisky(((Label) l).getText());`,
   alors que `.getChildren()` et `.getText()` sont des fonctions JavaFX. Si on change
   l'interface graphique, il faudra changer ce morceau de code qui n'a
   pourtant aucune raison d'être lié à l'interface.
