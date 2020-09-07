@@ -44,13 +44,15 @@ Pour une explication du fonctionnement du cours avec distanciel et présentiel, 
 
 Les CM de cette matière sont majoritairement en 100 % distanciel avec des vidéos disponibles à l'avance. Vous pouvez interagir avec les enseignants sur ce canal : [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End). Dans la mesure du possible, l'enseignant sera disponible en direct sur le tchat pendant les créneaux sur ADE.
 
-Pour les TP et TD, vous pouvez interagir avec les enseignants sur ce canal : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp). Nous l'utiliserons peut-être pour passer des messages à tout le monde pendant les créneaux, donc ayez le tchat ouvert en permanence même si vous êtes en présentiel. Vous devrez utiliser la messagerie instantanée si vous n'êtes pas inscrit officiellement à l'UE et devez suivre à distance, mais vous pouvez aussi l'utiliser pour poser vos questions ou suivre les discussions des autres étudianst si vous êtes physiquement présents dans les salles du Nautibus.
+Pour les TP et TD, vous pouvez interagir avec les enseignants sur ce canal : [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp). Nous l'utiliserons peut-être pour passer des messages à tout le monde pendant les créneaux, donc ayez le tchat ouvert en permanence même si vous êtes en présentiel. Vous devrez utiliser la messagerie instantanée si vous n'êtes pas inscrit officiellement à l'UE et devez suivre à distance, mais vous pouvez aussi l'utiliser pour poser vos questions ou suivre les discussions des autres étudiants si vous êtes physiquement présents dans les salles du Nautibus.
 
 Nous utiliserons aussi le canal [mif01](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FH3zDKk) pour les informations générales sur le cours. Vous pouvez également l'utiliser pour poser vos questions sur l'organisation du cours.
 
 Dans tous les cas, inscrivez-vous aux 3 canaux : [mif01](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FH3zDKk), [mif01-cm](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2Fys6End), [mif01-td-tp](https://go.rocket.chat/invite?host=chat-info.univ-lyon1.fr&path=invite%2FuD5wxp).
 
 `chat-info` utilise le logiciel [RocketChat](https://rocket.chat/), vous pouvez l'utiliser dans un navigateur, et/ou installer le client RocketChat sur votre PC, Mac ou smartphone.
+
+Les vidéos sont disponibles sur le mediacenter Lyon 1, et sur la [playlist youtube](https://www.youtube.com/playlist?list=PL6-YbcqXawf5ED3NHDZYejWJaAschnrO0).
 
 ## Nouvelles du cours
 
