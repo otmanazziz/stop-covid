@@ -1,6 +1,6 @@
 # Rendu du Mini Projet "StopCovid"
 
-**Votre travail devra être rendu sous forme d’un projet déposé sur la Forge Lyon 1, au plus tard le dimanche 22 septembre 2019 à 23h59.**
+**Votre travail devra être rendu sous forme d’un projet déposé sur la Forge Lyon 1, au plus tard le dimanche 20 septembre 2020 à 23h59.**
 
 Le mini-projet noté est le fil rouge de tous les TPs. Vous commencez à
 travailler sur la base de code au [lab1](TP1-java/), et vous ajoutez
