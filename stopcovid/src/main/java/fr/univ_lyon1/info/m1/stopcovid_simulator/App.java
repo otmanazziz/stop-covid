@@ -12,7 +12,6 @@ public class App extends Application {
     static final int HEIGHT = 600;
     private static final int NB_USERS = 4;
 
-
     /**
      * With javafx, start() is called when the application is launched.
      */
@@ -23,16 +22,13 @@ public class App extends Application {
         new JfxView(stage, WIDTH, HEIGHT, NB_USERS);
     }
 
-
     /**
      * A main method in case the user launches the application using
      * App as the main class.
      *
      * @param args Command-line arguments
      */
-    // TODO: checkstyle will (rightfully) complain about this brace. Make sure it
-    // does, and then fix it. Remove this TODO comment when done.
-    public static void main(final String[] args){
+    public static void main(final String[] args) {
         Application.launch(args);
     }
 }
