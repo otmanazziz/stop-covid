@@ -255,7 +255,7 @@ public class CharManipulatorTest {
 
     private CharManipulator manipulator;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         manipulator = new CharManipulator();
     }
