@@ -8,7 +8,7 @@
   <packaging>jar</packaging>
 
   <name>StopCovid Simulator</name>
-  <url>https://forge.univ-lyon1.fr/p1709456/mif01-2020</url>
+  <url>https://forge.univ-lyon1.fr/p1709456/mif01-project-azziz-plaquet</url>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
