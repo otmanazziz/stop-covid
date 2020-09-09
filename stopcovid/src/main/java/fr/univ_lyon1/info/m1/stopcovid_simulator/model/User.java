@@ -69,8 +69,8 @@ public class User {
     }
 
     /**
-     * Add a new contact, or increase the times the user meet him.
-     * @param u the user he met.
+     * Add a new contact, or increase the contact count with a user.
+     * @param u the user met.
      */
     public void addContact(final User u) {
         if (this.contacts.get(u.getUid()) == null) {

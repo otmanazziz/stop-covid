@@ -24,7 +24,7 @@ public class Model {
     /**
      * Get User.
      * @param id the id of the user.
-     * @return an user ientified by the id.
+     * @return a user identified by the id.
      */
     public User getUser(final String id) {
         return this.users.get(id);
@@ -40,7 +40,7 @@ public class Model {
     }
 
     /**
-     * Delete an user.
+     * Delete a user.
      * @param id the id of the user.
      */
     public void removeUser(final String id) {
