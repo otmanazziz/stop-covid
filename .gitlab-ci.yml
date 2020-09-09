@@ -20,4 +20,4 @@ junit:
     # Useful only for debugging
     #- cat ~/.m2/settings.xml
   script:
-    - cb stopcovid && mvn test --batch-mode
+    - cd stopcovid && mvn test --batch-mode
