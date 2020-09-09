@@ -17,9 +17,7 @@ public class App extends Application {
      */
     @Override
     public void start(final Stage stage) throws Exception {
-        //StopCovidUser model = new StopCovidUser(new File("."));
-        //Controller c = new Controller(model);
-        new JfxView(stage, WIDTH, HEIGHT, NB_USERS);
+        new JfxView(stage, WIDTH, HEIGHT);
     }
 
     /**
