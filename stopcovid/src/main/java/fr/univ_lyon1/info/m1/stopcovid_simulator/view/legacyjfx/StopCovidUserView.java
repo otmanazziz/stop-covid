@@ -1,4 +1,4 @@
-package fr.univ_lyon1.info.m1.stopcovid_simulator.view;
+package fr.univ_lyon1.info.m1.stopcovid_simulator.view.legacyjfx;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.User;
 import javafx.scene.Node;

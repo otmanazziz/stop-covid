@@ -1,4 +1,4 @@
-package fr.univ_lyon1.info.m1.stopcovid_simulator.view;
+package fr.univ_lyon1.info.m1.stopcovid_simulator.view.legacyjfx;
 
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;

@@ -1,6 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator;
 
-import fr.univ_lyon1.info.m1.stopcovid_simulator.view.JfxView;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.view.legacyjfx.JfxView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

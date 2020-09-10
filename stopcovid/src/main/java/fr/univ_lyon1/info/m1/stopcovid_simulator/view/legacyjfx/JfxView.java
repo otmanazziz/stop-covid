@@ -1,4 +1,4 @@
-package fr.univ_lyon1.info.m1.stopcovid_simulator.view;
+package fr.univ_lyon1.info.m1.stopcovid_simulator.view.legacyjfx;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.User;
 import javafx.collections.FXCollections;
@@ -47,6 +47,9 @@ public class JfxView extends HBox {
         final ComboBox<StopCovidUserView> userB = new ComboBox<>();
         userA.setItems(usersList);
         userB.setItems(usersList);
+
+        User u = new User("michel");
+
         final Button meetBtn = new Button("Meet!");
         /*meetBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
