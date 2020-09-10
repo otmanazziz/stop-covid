@@ -79,4 +79,12 @@ public class User {
             this.contacts.put(u.getUid(), this.contacts.get(u.getUid()) + 1);
         }
     }
+
+    /**
+     * Return the full name of the user status.
+     * @return full name of the user status.
+     */
+    public String getStatusToString() {
+        return this.status.toString();
+    }
 }

@@ -10,5 +10,19 @@ public enum CovidStatus {
      *
      * > INFECTED: The user is infected.
      */
-    NO_DANGER, RISKY, INFECTED;
+    NO_DANGER("Non infectée"), RISKY("Personne à risque"), INFECTED("Personne infectée");
+    private String name;
+
+    /**
+     * Constructor of Enum CovidStatus.
+     * @param name the full name of the status.
+     */
+    CovidStatus(final String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
