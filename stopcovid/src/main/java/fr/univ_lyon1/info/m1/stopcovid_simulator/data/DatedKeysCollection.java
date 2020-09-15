@@ -1,5 +1,7 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.data;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,6 +12,10 @@ public class DatedKeysCollection implements KeysManager {
 
     private List<DatedKey> keys = new ArrayList<>();
 
+    private Observable keysUpdated = new Observable();
+    private Observable keysAdded = new Observable();
+
+
     @Override
     public void addKey(final String key) {
         addKey(key, Instant.now());
@@ -18,6 +24,17 @@ public class DatedKeysCollection implements KeysManager {
     @Override
     public void addKey(final String key, final Instant date) {
         keys.add(new DatedKey(key, date));
+
+        keysUpdated.emit();
+        keysAdded.emit();
+    }
+
+    @Override
+    public void addKeys(final List<DatedKey> k) {
+        keys.addAll(k);
+
+        keysUpdated.emit();
+        keysAdded.emit();
     }
 
     @Override
@@ -28,5 +45,18 @@ public class DatedKeysCollection implements KeysManager {
     @Override
     public List<DatedKey> getDatedKeys() {
         return Collections.unmodifiableList(keys);
+    }
+
+
+
+
+    @Override
+    public Observable getObservableKeysUpdated() {
+        return keysUpdated;
+    }
+
+    @Override
+    public Observable getObservableKeysAdded() {
+        return keysAdded;
     }
 }

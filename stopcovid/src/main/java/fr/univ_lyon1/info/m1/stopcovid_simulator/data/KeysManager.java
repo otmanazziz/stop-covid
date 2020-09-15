@@ -1,5 +1,7 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.data;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
+
 import java.time.Instant;
 import java.util.List;
 
@@ -17,6 +19,11 @@ public interface KeysManager {
      */
     void addKey(String key, Instant date);
 
+    /**
+     * Add all keys to the manager.
+     * @param keys
+     */
+    void addKeys(List<DatedKey> keys);
 
     /**
      * Get the collections of keys.
@@ -29,4 +36,19 @@ public interface KeysManager {
      * @return
      */
     List<DatedKey> getDatedKeys();
+
+
+
+    /**
+     * Get the {@link Observable} called when the key collection changed.
+     * @return
+     */
+    Observable getObservableKeysUpdated();
+
+    /**
+     * Get the {@link Observable} called when one or more key are added.
+     * @return
+     */
+    Observable getObservableKeysAdded();
+
 }
