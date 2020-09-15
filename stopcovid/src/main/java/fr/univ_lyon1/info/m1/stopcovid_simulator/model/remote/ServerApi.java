@@ -1,10 +1,10 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote;
 
-public interface ServerModel {
+public interface ServerApi {
 
     /**
      * Get the user service.
      * @return
      */
-    UserService getUserService();
+    UserApi getUserApi();
 }
