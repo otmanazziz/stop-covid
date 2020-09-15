@@ -1,4 +1,4 @@
-package fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user;
+package fr.univ_lyon1.info.m1.stopcovid_simulator.data;
 
 import java.time.Instant;
 import java.util.List;
