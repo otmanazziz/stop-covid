@@ -5,7 +5,13 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserApi {
+
+    /**
+     * Set the model this API will interact with.
+     * @param model
+     */
+    void setModel(ServerModel model);
 
     /**
      * Declare a user as infected.
