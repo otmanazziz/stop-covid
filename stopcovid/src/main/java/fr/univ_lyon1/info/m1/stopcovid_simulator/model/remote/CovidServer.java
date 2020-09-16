@@ -4,7 +4,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.data.KeysManager;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.TokensDatabase;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.UserDatabase;
 
-public final class CovidServer implements ServerApi, ServerModel {
+public final class CovidServer implements ServerModel {
 
     private final UserApi userApi;
 
