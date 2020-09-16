@@ -1,5 +1,8 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.Model;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.CovidServer;
+
 public interface SimulatorView {
     /**
      * Get a user view.
@@ -7,4 +10,10 @@ public interface SimulatorView {
      * @return The desired {@link UserView} if it exists, null else.
      */
     UserView getUserView(String userToken);
+
+    /**
+     * Get a model.
+     * @return The currend model.
+     */
+    CovidServer getModel();
 }

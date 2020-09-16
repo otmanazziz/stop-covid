@@ -1,5 +1,7 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.Model;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.CovidServer;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.SimulatorView;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserView;
 import javafx.scene.Scene;
@@ -10,6 +12,7 @@ import javafx.stage.Stage;
 public class JfxMainView extends VBox implements SimulatorView {
 
     private static final int DEBUG_USER_COUNT = 10;
+    private CovidServer m;
 
     /**
      * Build a {@link SimulatorView} that uses the Java FX library.
@@ -42,6 +45,11 @@ public class JfxMainView extends VBox implements SimulatorView {
     @Override
     public UserView getUserView(final String userKey) {
         return null;
+    }
+
+    @Override
+    public CovidServer getModel() {
+        return this.m;
     }
 
 }

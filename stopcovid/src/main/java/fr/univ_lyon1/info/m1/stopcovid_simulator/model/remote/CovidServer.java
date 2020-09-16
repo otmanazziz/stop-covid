@@ -14,7 +14,7 @@ public final class CovidServer implements ServerApi, ServerModel {
 
 
 
-    private CovidServer(final Builder builder) {
+    public CovidServer(final Builder builder) {
         infectedKeys = builder.infectedKeys;
         users = builder.userDatabase;
         covidTokens = builder.covidTokens;
@@ -41,7 +41,7 @@ public final class CovidServer implements ServerApi, ServerModel {
 
 
 
-    public class Builder {
+    public static class Builder {
         private KeysManager infectedKeys;
         private UserDatabase userDatabase;
         private TokensDatabase covidTokens;

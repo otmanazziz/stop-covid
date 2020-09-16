@@ -11,6 +11,9 @@ public class SimulatedUserApi implements UserApi {
 
     private ServerModel model;
 
+    public SimulatedUserApi() {
+
+    }
 
     @Override
     public void setModel(final ServerModel model) {
