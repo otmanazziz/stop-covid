@@ -4,7 +4,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.data.KeysManager;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.TokensDatabase;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.UserDatabase;
 
-public final class CovidServer implements ServerApi, ServerModel {
+public final class CovidServer implements ServerModel {
 
     private final UserApi userApi;
 
@@ -36,12 +36,12 @@ public final class CovidServer implements ServerApi, ServerModel {
 
     @Override
     public UserDatabase getUsers() {
-        return null;
+        return users;
     }
 
 
 
-    public class Builder {
+    public static class Builder {
         private KeysManager infectedKeys;
         private UserDatabase userDatabase;
         private TokensDatabase covidTokens;
@@ -61,7 +61,7 @@ public final class CovidServer implements ServerApi, ServerModel {
         public CovidServer build() throws Exception {
             if (infectedKeys == null
                     || userDatabase == null
-                    || covidTokens == null) {
+                    || userApi == null) {
                 throw new Exception("CovidServer not fully built.");
             }
 
@@ -104,7 +104,7 @@ public final class CovidServer implements ServerApi, ServerModel {
          * @param userApi
          * @return
          */
-        public Builder setUserApi(final UserApi userApi) {
+        public Builder withUserApi(final UserApi userApi) {
             this.userApi = userApi;
             return this;
         }
