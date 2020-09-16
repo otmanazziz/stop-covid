@@ -1,10 +1,17 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.data.DatedKey;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserApi {
+
+    /**
+     * Set the model this API will interact with.
+     * @param model
+     */
+    void setModel(ServerModel model);
 
     /**
      * Declare a user as infected.
@@ -27,4 +34,10 @@ public interface UserService {
      * @return a unique user token.
      */
     String register();
+
+    /**
+     * Get the observable notifying when the infected key list gets updated.
+     * @return
+     */
+    Observable getInfectedKeysUpdatedObservable();
 }
