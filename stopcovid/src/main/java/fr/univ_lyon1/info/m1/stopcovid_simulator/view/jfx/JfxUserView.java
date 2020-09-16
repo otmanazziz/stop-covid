@@ -24,7 +24,8 @@ public class JfxUserView implements UserView, UserDebugView {
     private DebugActionsPane debugActions;
 
     /**
-     * Create a standard JfxUserView.
+     * Create a Java FX UserView.
+     * @param user the user viewed.
      */
     public JfxUserView(final UserLocalModel user) {
         this.user = user;

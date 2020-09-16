@@ -16,6 +16,11 @@ public interface SimulatorModel {
      */
     void removeUser(String userToken);
 
+    /**
+     * Get a user from its token.
+     * @param userToken
+     * @return
+     */
     UserLocalModel getUser(String userToken);
 
     /**

@@ -75,7 +75,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
     }
 
 
-    private void onUserAddedInSimulatorModel(String token) {
+    private void onUserAddedInSimulatorModel(final String token) {
         UserLocalModel user = simulatorModel.getUser(token);
         JfxUserView userView = new JfxUserView(user);
         userViewsVbox.getChildren().add(userView.getRoot());
