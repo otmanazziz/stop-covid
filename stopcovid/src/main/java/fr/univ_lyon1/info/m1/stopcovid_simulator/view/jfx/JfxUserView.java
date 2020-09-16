@@ -1,5 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserView;
@@ -15,6 +16,8 @@ import java.util.UUID;
 
 public class JfxUserView implements UserView, UserDebugView {
 
+    private final UserLocalModel user;
+
     private TitledPane gui;
 
     private RegularActionsPane regularActions;
@@ -23,7 +26,9 @@ public class JfxUserView implements UserView, UserDebugView {
     /**
      * Create a standard JfxUserView.
      */
-    public JfxUserView() {
+    public JfxUserView(final UserLocalModel user) {
+        this.user = user;
+
         gui = new TitledPane();
         gui.setText("User #" + UUID.randomUUID().toString());
         gui.setExpanded(false);
