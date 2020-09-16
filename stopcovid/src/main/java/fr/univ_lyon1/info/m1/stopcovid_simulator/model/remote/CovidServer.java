@@ -36,12 +36,12 @@ public final class CovidServer implements ServerModel {
 
     @Override
     public UserDatabase getUsers() {
-        return null;
+        return users;
     }
 
 
 
-    public class Builder {
+    public static class Builder {
         private KeysManager infectedKeys;
         private UserDatabase userDatabase;
         private TokensDatabase covidTokens;
@@ -61,7 +61,7 @@ public final class CovidServer implements ServerModel {
         public CovidServer build() throws Exception {
             if (infectedKeys == null
                     || userDatabase == null
-                    || covidTokens == null) {
+                    || userApi == null) {
                 throw new Exception("CovidServer not fully built.");
             }
 
@@ -104,7 +104,7 @@ public final class CovidServer implements ServerModel {
          * @param userApi
          * @return
          */
-        public Builder setUserApi(final UserApi userApi) {
+        public Builder withUserApi(final UserApi userApi) {
             this.userApi = userApi;
             return this;
         }
