@@ -12,8 +12,10 @@ public final class CovidServer implements ServerApi, ServerModel {
     private final KeysManager infectedKeys;
     private final TokensDatabase covidTokens;
 
-
-
+    /**
+     * Covid Server constructor.
+     * @param builder a Builder.
+     */
     public CovidServer(final Builder builder) {
         infectedKeys = builder.infectedKeys;
         users = builder.userDatabase;
@@ -38,8 +40,6 @@ public final class CovidServer implements ServerApi, ServerModel {
     public UserDatabase getUsers() {
         return null;
     }
-
-
 
     public static class Builder {
         private KeysManager infectedKeys;

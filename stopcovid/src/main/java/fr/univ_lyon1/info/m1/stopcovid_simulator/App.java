@@ -9,11 +9,8 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.view.SimulatorView;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.JfxMainView;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Main class for the application (structure imposed by JavaFX).

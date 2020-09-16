@@ -11,6 +11,9 @@ public class SimulatedUserApi implements UserApi {
 
     private ServerModel model;
 
+    /**
+     * Simulated User API constructor.
+     */
     public SimulatedUserApi() {
 
     }
