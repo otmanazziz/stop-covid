@@ -5,8 +5,16 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.UserDataba
 
 public interface ServerModel extends ServerApi {
 
+    /**
+     * Get the object managing infected keys.
+     * @return
+     */
     KeysManager getInfectedKeys();
 
+    /**
+     * Get the user database's accessor.
+     * @return
+     */
     UserDatabase getUsers();
 
     // TokensDatabase getUserTokensDatabase();
