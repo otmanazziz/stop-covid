@@ -47,7 +47,11 @@ public class DatedKeysCollection implements KeysManager {
         return Collections.unmodifiableList(keys);
     }
 
-
+    @Override
+    public DatedKey getNewestKey() {
+        keys.sort((dk1, dk2) -> dk2.getDate().compareTo(dk1.getDate()));
+        return keys.get(0);
+    }
 
 
     @Override

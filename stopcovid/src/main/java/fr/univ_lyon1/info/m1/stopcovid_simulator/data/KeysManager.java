@@ -37,6 +37,12 @@ public interface KeysManager {
      */
     List<DatedKey> getDatedKeys();
 
+    /**
+     * Get the most recent key stored.
+     * @return
+     */
+    DatedKey getNewestKey();
+
 
 
     /**
