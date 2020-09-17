@@ -3,7 +3,9 @@ package fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.EventEmitter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CovidSimulator implements SimulatorModel {
@@ -36,6 +38,11 @@ public class CovidSimulator implements SimulatorModel {
     @Override
     public UserLocalModel getUser(final String userToken) {
         return simulatedUsers.get(userToken);
+    }
+
+    @Override
+    public List<UserLocalModel> getUsers() {
+        return new ArrayList<UserLocalModel>(this.simulatedUsers.values());
     }
 
 
