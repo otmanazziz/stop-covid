@@ -5,6 +5,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.SimulatorView;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserView;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
