@@ -93,6 +93,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
             UserDebugView uView = userViews.get(uModel.getUserToken());
             uView.updateVisibleForeignKeys(simulatorModel.getUsers()
                     .stream()
+                    .filter(model -> model != uModel)
                     .map(userLocalModel -> userLocalModel.
                             getPersonalKeysManager().
                             getNewestKey().
