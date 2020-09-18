@@ -5,7 +5,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.data.KeysManager;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 
 import java.time.Period;
-
+import java.util.UUID;
 
 
 public class CovidLocalUser implements UserLocalModel {
@@ -32,6 +32,7 @@ public class CovidLocalUser implements UserLocalModel {
         this.userToken = userToken;
 
         personalKeysManager = new DatedKeysCollection();
+        personalKeysManager.addKey(UUID.randomUUID().toString());
         metKeysManager = new DatedKeysCollection();
         infectedKeysManager = new DatedKeysCollection();
     }

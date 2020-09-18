@@ -3,7 +3,6 @@ package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
-import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserView;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user.DebugActionsPane;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user.RegularActionsPane;
 import javafx.scene.control.TitledPane;
@@ -12,9 +11,10 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
-public class JfxUserView implements UserView, UserDebugView {
+public class JfxUserView implements UserDebugView {
 
     private final UserLocalModel user;
 
@@ -70,4 +70,10 @@ public class JfxUserView implements UserView, UserDebugView {
         result.add(debugActions.getKeyToMeet());
         return result;
     }
+
+    @Override
+    public void updateVisibleForeignKeys(final List<String> keys) {
+        debugActions.setForeignKeys(keys);
+    }
+
 }
