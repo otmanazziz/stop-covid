@@ -3,6 +3,7 @@ package fr.univ_lyon1.info.m1.stopcovid_simulator.view;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface UserDebugView extends UserView {
     /**
@@ -16,4 +17,10 @@ public interface UserDebugView extends UserView {
      * @return keys the users had a "contact" with.
      */
     Collection<String> getSimulatedMetKeys();
+
+    /**
+     * Update the keys that can be met.
+     * @param keys
+     */
+    void updateVisibleForeignKeys(List<String> keys);
 }
