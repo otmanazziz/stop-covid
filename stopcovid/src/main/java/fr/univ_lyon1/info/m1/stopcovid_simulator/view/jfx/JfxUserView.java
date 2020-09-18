@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 public class JfxUserView implements UserDebugView {
@@ -69,4 +70,10 @@ public class JfxUserView implements UserDebugView {
         result.add(debugActions.getKeyToMeet());
         return result;
     }
+
+    @Override
+    public void updateVisibleForeignKeys(final List<String> keys) {
+        debugActions.setForeignKeys(keys);
+    }
+
 }
