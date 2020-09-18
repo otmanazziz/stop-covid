@@ -13,11 +13,13 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
+
 public class DebugActionsPane extends TitledPane {
 
     private Observable declareContact = new Observable();
 
-    private ComboBox<String> keyToMeetCombobox;
+    private final ComboBox<String> foreignKeysCombobox;
 
     /**
      * Creates a DebugActionsPane.
@@ -31,11 +33,13 @@ public class DebugActionsPane extends TitledPane {
 
         HBox covidToken = new HBox();
         covidToken.setAlignment(Pos.CENTER_LEFT);
-        keyToMeetCombobox = new ComboBox<>();
-        HBox.setHgrow(keyToMeetCombobox, Priority.ALWAYS);
+
+        foreignKeysCombobox = new ComboBox<>();
+        HBox.setHgrow(foreignKeysCombobox, Priority.ALWAYS);
+
         Label covidTokenLabel = new Label("Clé");
         covidTokenLabel.setMinWidth(Region.USE_PREF_SIZE);
-        covidToken.getChildren().addAll(covidTokenLabel, keyToMeetCombobox);
+        covidToken.getChildren().addAll(covidTokenLabel, foreignKeysCombobox);
 
         Button declareInfectedButton = new Button("Déclarer un contact");
         declareInfectedButton.setMaxWidth(Double.MAX_VALUE);
@@ -51,6 +55,15 @@ public class DebugActionsPane extends TitledPane {
     }
 
     public String getKeyToMeet() {
-        return keyToMeetCombobox.getSelectionModel().getSelectedItem();
+        return foreignKeysCombobox.getSelectionModel().getSelectedItem();
+    }
+
+    /**
+     * Assigns the list of foreign keys that can be met.
+     * @param keys
+     */
+    public void setForeignKeys(final List<String> keys) {
+        foreignKeysCombobox.getItems().clear();
+        foreignKeysCombobox.getItems().addAll(keys);
     }
 }
