@@ -4,7 +4,8 @@ public interface RiskyFlaggingStrategy {
 
     /**
      * Evaluates if the situation is risky for the user.
+     * @param user
      * @return
      */
-    boolean isRisky();
+    boolean isRisky(UserLocalModel user);
 }

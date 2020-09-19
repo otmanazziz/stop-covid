@@ -1,5 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.RiskyFlaggingStrategy;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
@@ -61,8 +62,18 @@ public class JfxUserView implements UserDebugView {
     }
 
     @Override
+    public Observable getRiskyStrategyChangedObservable() {
+        return regularActions.getRiskyStrategyChanged();
+    }
+
+    @Override
     public String getCovidToken() {
         return regularActions.getCovidToken();
+    }
+
+    @Override
+    public RiskyFlaggingStrategy getSelectedRiskyFlaggingStrategy() {
+        return regularActions.getSelectedRiskyStrategy();
     }
 
     @Override

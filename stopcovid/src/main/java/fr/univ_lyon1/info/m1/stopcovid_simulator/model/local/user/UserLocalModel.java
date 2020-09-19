@@ -19,6 +19,12 @@ public interface UserLocalModel {
     String getUserToken();
 
     /**
+     * Is this user flagged as "risky", which means they may be infected.
+     * @return
+     */
+    boolean getIsRisky();
+
+    /**
      * Defines the new risky flagging strategy.
      * @param strategy
      */
