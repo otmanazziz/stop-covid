@@ -41,7 +41,7 @@ public class CovidLocalUser implements UserLocalModel {
         infectedKeysManager = new DatedKeysCollection();
         infectedKeysManager.getObservableKeysUpdated().subscribe(() -> verifyIsRisky());
 
-        riskyFlaggingStrategy = new ContactAmountRiskyFlagging(this, 1);
+        riskyFlaggingStrategy = new ContactAmountRiskyFlagging(1);
         verifyIsRisky();
     }
 
@@ -99,6 +99,6 @@ public class CovidLocalUser implements UserLocalModel {
 
 
     private void verifyIsRisky() {
-        setIsRisky(riskyFlaggingStrategy.isRisky());
+        setIsRisky(riskyFlaggingStrategy.isRisky(this));
     }
 }
