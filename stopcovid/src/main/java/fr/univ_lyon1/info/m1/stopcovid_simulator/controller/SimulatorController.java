@@ -25,6 +25,7 @@ public class SimulatorController {
         this.server = server;
 
         view.getObservableAddUser().subscribe(() -> onRequestAddUser());
+        view.getDeleteUserObservable().subscribe(m -> onRequestDeleteUser(m));
     }
 
 
@@ -33,5 +34,9 @@ public class SimulatorController {
         String newUserToken = server.getUserApi().register();
         CovidLocalUser user = new CovidLocalUser(newUserToken);
         model.addUser(user);
+    }
+
+    private void onRequestDeleteUser(final String userToken) {
+        model.removeUser(userToken);
     }
 }

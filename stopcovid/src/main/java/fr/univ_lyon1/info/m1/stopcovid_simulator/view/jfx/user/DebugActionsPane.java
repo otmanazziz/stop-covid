@@ -1,8 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -18,6 +16,7 @@ import java.util.List;
 public class DebugActionsPane extends TitledPane {
 
     private Observable declareContact = new Observable();
+    private Observable deleteUser = new Observable();
 
     private final ComboBox<String> foreignKeysCombobox;
 
@@ -27,7 +26,7 @@ public class DebugActionsPane extends TitledPane {
     public DebugActionsPane() {
         TitledPane debugActionsPane = this;
         debugActionsPane.setText("Actions de debug");
-        debugActionsPane.setCollapsible(false);
+        debugActionsPane.setExpanded(false);
 
         VBox regularActionsVbox = new VBox();
 
@@ -43,14 +42,15 @@ public class DebugActionsPane extends TitledPane {
 
         Button declareInfectedButton = new Button("Déclarer un contact");
         declareInfectedButton.setMaxWidth(Double.MAX_VALUE);
-        declareInfectedButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(final ActionEvent event) {
-                declareContact.emit();
-            }
-        });
+        declareInfectedButton.setOnAction((actionEvent) -> declareContact.emit());
 
-        regularActionsVbox.getChildren().addAll(covidToken, declareInfectedButton);
+        Button deleteUserButton = new Button("Supprimer l'utilisateur");
+        deleteUserButton.setMaxWidth(Double.MAX_VALUE);
+        deleteUserButton.setOnAction((actionEvent) -> deleteUser.emit());
+
+        regularActionsVbox.getChildren().addAll(covidToken,
+                declareInfectedButton,
+                deleteUserButton);
         debugActionsPane.setContent(regularActionsVbox);
     }
 
@@ -65,5 +65,13 @@ public class DebugActionsPane extends TitledPane {
     public void setForeignKeys(final List<String> keys) {
         foreignKeysCombobox.getItems().clear();
         foreignKeysCombobox.getItems().addAll(keys);
+    }
+
+    public Observable getDeclaredContactObservable() {
+        return declareContact;
+    }
+
+    public Observable getDeleteUserObservable() {
+        return deleteUser;
     }
 }

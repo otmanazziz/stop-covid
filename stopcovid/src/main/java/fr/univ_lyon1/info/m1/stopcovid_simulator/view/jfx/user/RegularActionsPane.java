@@ -1,8 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,7 +23,7 @@ public class RegularActionsPane extends TitledPane {
     public RegularActionsPane() {
         TitledPane regularActionsPane = this;
         regularActionsPane.setText("Actions normales");
-        regularActionsPane.setCollapsible(false);
+        regularActionsPane.setExpanded(false);
 
         VBox regularActionsVbox = new VBox();
 
@@ -39,12 +37,7 @@ public class RegularActionsPane extends TitledPane {
 
         Button declareInfectedButton = new Button("Declare infected");
         declareInfectedButton.setMaxWidth(Double.MAX_VALUE);
-        declareInfectedButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(final ActionEvent event) {
-                declaredInfected.emit();
-            }
-        });
+        declareInfectedButton.setOnAction(event -> declaredInfected.emit());
 
         regularActionsVbox.getChildren().addAll(covidToken, declareInfectedButton);
         regularActionsPane.setContent(regularActionsVbox);
