@@ -1,8 +1,11 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.controller;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.data.DatedKey;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.UserApi;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserView;
+
+import java.util.List;
 
 public class UserController {
     private final UserView view;
@@ -21,6 +24,8 @@ public class UserController {
         this.view = view;
         this.model = model;
         this.userApi = userApi;
+
+        view.getDeclaredInfectedObservable().subscribe((() -> onDeclaredInfected()));
     }
 
 
@@ -34,5 +39,14 @@ public class UserController {
 
     protected UserApi getUserApi() {
         return userApi;
+    }
+
+
+
+    private void onDeclaredInfected() {
+        String userToken = model.getUserToken();
+        String covidToken = view.getCovidToken();
+        List<DatedKey> ownedDatedKeys = model.getPersonalKeysManager().getDatedKeys();
+        userApi.declareInfected(userToken, covidToken, ownedDatedKeys);
     }
 }
