@@ -10,7 +10,6 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -65,7 +64,7 @@ public class JfxUserView implements UserDebugView {
     }
 
     @Override
-    public Collection<String> getSimulatedMetKeys() {
+    public List<String> getSimulatedMetKeys() {
         ArrayList<String> result = new ArrayList<String>();
         result.add(debugActions.getKeyToMeet());
         return result;
