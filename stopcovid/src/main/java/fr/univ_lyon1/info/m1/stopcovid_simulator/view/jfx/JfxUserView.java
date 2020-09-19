@@ -64,6 +64,11 @@ public class JfxUserView implements UserDebugView {
     }
 
     @Override
+    public Observable getDeleteUserObservable() {
+        return debugActions.getDeleteUserObservable();
+    }
+
+    @Override
     public List<String> getSimulatedMetKeys() {
         ArrayList<String> result = new ArrayList<String>();
         result.add(debugActions.getKeyToMeet());
