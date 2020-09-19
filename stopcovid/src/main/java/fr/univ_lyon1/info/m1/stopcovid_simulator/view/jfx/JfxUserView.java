@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 public class JfxUserView implements UserDebugView {
 
@@ -28,10 +28,9 @@ public class JfxUserView implements UserDebugView {
      */
     public JfxUserView(final UserLocalModel user) {
         this.user = user;
-
         gui = new TitledPane();
-        gui.setText("User #" + UUID.randomUUID().toString());
         gui.setExpanded(false);
+        updateTitle();
 
         VBox guiVbox = new VBox();
 
@@ -40,6 +39,9 @@ public class JfxUserView implements UserDebugView {
 
         guiVbox.getChildren().addAll(regularActions, debugActions);
         gui.setContent(guiVbox);
+
+        user.getPersonalKeysManager().getObservableKeysAdded()
+                .subscribe(() -> onOwnKeysUpdated());
     }
 
     public Region getRoot() {
@@ -80,4 +82,18 @@ public class JfxUserView implements UserDebugView {
         debugActions.setForeignKeys(keys);
     }
 
+
+
+    private void onOwnKeysUpdated() {
+        updateTitle();
+    }
+
+
+
+    private void updateTitle() {
+        gui.setText("User #"
+                + user.getUserToken()
+                + " - active key:"
+                + user.getPersonalKeysManager().getNewestKey().getKey());
+    }
 }
