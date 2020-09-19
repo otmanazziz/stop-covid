@@ -43,12 +43,7 @@ public class DebugActionsPane extends TitledPane {
 
         Button declareInfectedButton = new Button("Déclarer un contact");
         declareInfectedButton.setMaxWidth(Double.MAX_VALUE);
-        declareInfectedButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(final ActionEvent event) {
-                declareContact.emit();
-            }
-        });
+        declareInfectedButton.setOnAction((actionEvent) -> declareContact.emit());
 
         regularActionsVbox.getChildren().addAll(covidToken, declareInfectedButton);
         debugActionsPane.setContent(regularActionsVbox);
