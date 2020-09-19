@@ -22,6 +22,7 @@ public class DataViewerPane extends TitledPane {
 
     private final UserLocalModel model;
 
+    private Label riskyLabel;
     private ListView ownKeysViewer;
     private ListView metKeysViewer;
 
@@ -39,8 +40,13 @@ public class DataViewerPane extends TitledPane {
                 .subscribe(() -> onOwnKeysUpdated());
         model.getMetKeysManager().getObservableKeysUpdated()
                 .subscribe(() -> onMetKeysUpdated());
+        model.getRiskyChangedObservable().subscribe(() -> onRiskyChanged());
 
-        HBox hbox = new HBox();
+        VBox vbox = new VBox();
+
+        riskyLabel = new Label();
+
+        HBox keysHbox = new HBox();
 
         VBox ownKeysVbox = new VBox();
         HBox.setHgrow(ownKeysVbox, Priority.ALWAYS);
@@ -56,12 +62,16 @@ public class DataViewerPane extends TitledPane {
         metKeysViewer.setMaxHeight(LISTS_HEIGHT);
         metKeysVbox.getChildren().addAll(metKeysTitle, metKeysViewer);
 
-        hbox.getChildren().addAll(ownKeysVbox, metKeysVbox);
+        keysHbox.getChildren().addAll(ownKeysVbox, metKeysVbox);
 
-        this.setContent(hbox);
+        vbox.getChildren().addAll(riskyLabel, keysHbox);
 
-        onOwnKeysUpdated(); // force update
+        this.setContent(vbox);
+
+        // force update
+        onOwnKeysUpdated();
         onMetKeysUpdated();
+        onRiskyChanged();
     }
 
     private void onOwnKeysUpdated() {
@@ -84,5 +94,20 @@ public class DataViewerPane extends TitledPane {
             String formattedInstant = formatter.format(datedKey.getDate());
             target.getItems().add(formattedInstant + ") " + datedKey.getKey());
         }
+    }
+
+    private void onRiskyChanged() {
+        boolean isRisky = model.getIsRisky();
+        String newText = "Susceptible d'être contaminé: ";
+        String newStyle = "";
+        if (isRisky) {
+            newText += "OUI";
+            newStyle += "-fx-text-fill: red;";
+        } else {
+            newText += "non";
+        }
+
+        riskyLabel.setText(newText);
+        riskyLabel.setStyle(newStyle);
     }
 }
