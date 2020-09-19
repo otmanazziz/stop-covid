@@ -66,4 +66,8 @@ public class DebugActionsPane extends TitledPane {
         foreignKeysCombobox.getItems().clear();
         foreignKeysCombobox.getItems().addAll(keys);
     }
+
+    public Observable getObservableDeclareContact() {
+        return declareContact;
+    }
 }

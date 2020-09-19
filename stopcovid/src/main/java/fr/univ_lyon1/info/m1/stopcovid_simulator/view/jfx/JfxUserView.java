@@ -60,7 +60,7 @@ public class JfxUserView implements UserDebugView {
 
     @Override
     public Observable getSimulatedContactObservable() {
-        return null;
+        return debugActions.getObservableDeclareContact();
     }
 
     @Override
