@@ -48,6 +48,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
         this.simulatorModel = simulatorModel;
 
         simulatorModel.getObservableUserAdded().subscribe(m -> onUserAddedInSimulatorModel(m));
+        simulatorModel.getObservableUserRemoved().subscribe(m -> removeUserView(m));
 
         // Name of window
         stage.setTitle("StopCovid Simulator");
@@ -120,5 +121,8 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
         userViews.put(token, userView);
     }
 
+    private void removeUserView(final String token) {
+        JfxUserView uView = userViews.get(token);
+        userViewsVbox.getChildren().remove(uView.getRoot());
     }
 }
