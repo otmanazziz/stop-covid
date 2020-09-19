@@ -3,6 +3,7 @@ package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.SimulatorModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerModel;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.util.EventEmitter;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.SimulatorView;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
@@ -25,6 +26,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
 
 
     private Observable addUserObservable = new Observable();
+    private EventEmitter<String> deleteUser = new EventEmitter<>();
 
     private VBox userViewsVbox;
     private Map<String, UserDebugView> userViews = new HashMap<>();
@@ -76,6 +78,11 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
     @Override
     public Observable getObservableAddUser() {
         return addUserObservable;
+    }
+
+    @Override
+    public EventEmitter<String> getDeleteUserObservable() {
+        return deleteUser;
     }
 
 

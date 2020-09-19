@@ -1,5 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.util.EventEmitter;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 
 public interface SimulatorView {
@@ -15,4 +16,10 @@ public interface SimulatorView {
      * @return
      */
     Observable getObservableAddUser();
+
+    /**
+     * Get the {@link EventEmitter} called when a user wants to be deleted. Its token is passed.
+     * @return
+     */
+    EventEmitter<String> getDeleteUserObservable();
 }
