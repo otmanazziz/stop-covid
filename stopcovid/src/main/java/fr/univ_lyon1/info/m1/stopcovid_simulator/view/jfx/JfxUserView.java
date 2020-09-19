@@ -3,6 +3,7 @@ package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user.DataViewerPane;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user.DebugActionsPane;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user.RegularActionsPane;
 import javafx.scene.control.TitledPane;
@@ -20,6 +21,7 @@ public class JfxUserView implements UserDebugView {
     private TitledPane gui;
 
     private RegularActionsPane regularActions;
+    private DataViewerPane dataViewer;
     private DebugActionsPane debugActions;
 
     /**
@@ -35,9 +37,12 @@ public class JfxUserView implements UserDebugView {
         VBox guiVbox = new VBox();
 
         regularActions = new RegularActionsPane();
+        dataViewer = new DataViewerPane(user);
         debugActions = new DebugActionsPane();
 
-        guiVbox.getChildren().addAll(regularActions, debugActions);
+        guiVbox.getChildren().addAll(regularActions,
+                dataViewer,
+                debugActions);
         gui.setContent(guiVbox);
 
         user.getPersonalKeysManager().getObservableKeysAdded()
