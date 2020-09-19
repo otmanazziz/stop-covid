@@ -15,11 +15,10 @@ public class ContactAmountRiskyFlagging implements RiskyFlaggingStrategy {
     @Override
     public boolean isRisky() {
         List<String> met = user.getMetKeysManager().getKeys();
-        List<String> infected = user.getMetKeysManager().getKeys();
-        long infectedContacts = met.stream().
-                filter(s -> {
-                    return infected.contains(s);
-                })
+        List<String> infected = user.getInfectedKeysManager().getKeys();
+        long infectedContacts = met.stream()
+                .distinct()
+                .filter(infected::contains)
                 .count();
         return infectedContacts >= requiredContactCount;
     }
