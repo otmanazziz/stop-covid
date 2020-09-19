@@ -25,7 +25,7 @@ public class RegularActionsPane extends TitledPane {
     public RegularActionsPane() {
         TitledPane regularActionsPane = this;
         regularActionsPane.setText("Actions normales");
-        regularActionsPane.setCollapsible(false);
+        regularActionsPane.setExpanded(false);
 
         VBox regularActionsVbox = new VBox();
 

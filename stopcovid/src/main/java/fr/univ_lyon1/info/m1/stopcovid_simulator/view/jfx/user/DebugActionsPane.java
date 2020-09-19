@@ -26,7 +26,7 @@ public class DebugActionsPane extends TitledPane {
     public DebugActionsPane() {
         TitledPane debugActionsPane = this;
         debugActionsPane.setText("Actions de debug");
-        debugActionsPane.setCollapsible(false);
+        debugActionsPane.setExpanded(false);
 
         VBox regularActionsVbox = new VBox();
 
