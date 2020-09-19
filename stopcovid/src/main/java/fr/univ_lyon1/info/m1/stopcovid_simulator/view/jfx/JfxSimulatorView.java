@@ -29,7 +29,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
     private EventEmitter<String> deleteUser = new EventEmitter<>();
 
     private VBox userViewsVbox;
-    private Map<String, UserDebugView> userViews = new HashMap<>();
+    private Map<String, JfxUserView> userViews = new HashMap<>();
 
     private ServerModel serverModel;
     private SimulatorModel simulatorModel;
@@ -87,11 +87,15 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
 
 
     private void onUserAddedInSimulatorModel(final String token) {
-        UserLocalModel user = simulatorModel.getUser(token);
-        JfxUserView userView = new JfxUserView(user);
-        userViewsVbox.getChildren().add(userView.getRoot());
-        userViews.put(token, userView);
+        createUserViewController(token);
+        updateUsersForeignKeys();
+    }
 
+
+
+
+
+    private void updateUsersForeignKeys() {
         List<UserLocalModel> usersList = simulatorModel.getUsers();
         for (UserLocalModel uModel : usersList) {
             UserDebugView uView = userViews.get(uModel.getUserToken());
@@ -104,7 +108,17 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
                             getKey())
                     .collect(Collectors.toList()));
         }
+    }
 
+    private void createUserViewController(final String token) {
+        // TODO create a user controller there
+        UserLocalModel user = simulatorModel.getUser(token);
+        JfxUserView userView = new JfxUserView(user);
+        userView.getDeleteUserObservable().subscribe(() -> deleteUser.emit(token));
+
+        userViewsVbox.getChildren().add(userView.getRoot());
+        userViews.put(token, userView);
+    }
 
     }
 }
