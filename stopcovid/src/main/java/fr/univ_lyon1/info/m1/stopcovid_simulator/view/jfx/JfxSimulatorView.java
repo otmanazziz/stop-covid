@@ -54,11 +54,8 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
 
         ScrollPane usersScrollpane = new ScrollPane();
         usersScrollpane.setFitToWidth(true);
+
         userViewsVbox = new VBox();
-        /*for (int i = 0; i < DEBUG_USER_COUNT; ++i) {
-            JfxUserView u = new JfxUserView();
-            usersVBox.getChildren().add(u.getRoot());
-        }*/
         usersScrollpane.setContent(userViewsVbox);
 
         Button testAddButton = new Button("ADD USER");
