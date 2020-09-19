@@ -1,5 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx;
 
+import fr.univ_lyon1.info.m1.stopcovid_simulator.controller.UserDebugController;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.SimulatorModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerModel;
@@ -116,6 +117,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
         UserLocalModel user = simulatorModel.getUser(token);
         JfxUserView userView = new JfxUserView(user);
         userView.getDeleteUserObservable().subscribe(() -> deleteUser.emit(token));
+        var controller = new UserDebugController(userView, user, serverModel.getUserApi());
 
         userViewsVbox.getChildren().add(userView.getRoot());
         userViews.put(token, userView);
