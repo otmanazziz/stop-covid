@@ -14,6 +14,7 @@ public class CovidLocalUser implements UserLocalModel {
 
 
     private final String userToken;
+    private boolean isRisky;
 
     private final KeysManager personalKeysManager;
     private final KeysManager metKeysManager;
@@ -33,8 +34,15 @@ public class CovidLocalUser implements UserLocalModel {
 
         personalKeysManager = new DatedKeysCollection();
         personalKeysManager.addKey(UUID.randomUUID().toString());
+
         metKeysManager = new DatedKeysCollection();
+        metKeysManager.getObservableKeysUpdated().subscribe(() -> verifyIsRisky());
+
         infectedKeysManager = new DatedKeysCollection();
+        infectedKeysManager.getObservableKeysUpdated().subscribe(() -> verifyIsRisky());
+
+        riskyFlaggingStrategy = new ContactAmountRiskyFlagging(this, 1);
+        verifyIsRisky();
     }
 
 
@@ -65,12 +73,32 @@ public class CovidLocalUser implements UserLocalModel {
     }
 
     @Override
+    public boolean getIsRisky() {
+        return isRisky;
+    }
+
+    @Override
     public void setRiskyFlaggingStrategy(final RiskyFlaggingStrategy strategy) {
         riskyFlaggingStrategy = strategy;
+        verifyIsRisky();
     }
 
     @Override
     public void save() {
 
+    }
+
+
+
+    protected void setIsRisky(final boolean newValue) {
+        if (newValue != isRisky) {
+            isRisky = newValue;
+            getRiskyChangedObservable().emit();
+        }
+    }
+
+
+    private void verifyIsRisky() {
+        setIsRisky(riskyFlaggingStrategy.isRisky());
     }
 }
