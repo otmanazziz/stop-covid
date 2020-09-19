@@ -1,8 +1,6 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.user;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -18,6 +16,7 @@ import java.util.List;
 public class DebugActionsPane extends TitledPane {
 
     private Observable declareContact = new Observable();
+    private Observable deleteUser = new Observable();
 
     private final ComboBox<String> foreignKeysCombobox;
 
@@ -45,7 +44,13 @@ public class DebugActionsPane extends TitledPane {
         declareInfectedButton.setMaxWidth(Double.MAX_VALUE);
         declareInfectedButton.setOnAction((actionEvent) -> declareContact.emit());
 
-        regularActionsVbox.getChildren().addAll(covidToken, declareInfectedButton);
+        Button deleteUserButton = new Button("Supprimer l'utilisateur");
+        deleteUserButton.setMaxWidth(Double.MAX_VALUE);
+        deleteUserButton.setOnAction((actionEvent) -> deleteUser.emit());
+
+        regularActionsVbox.getChildren().addAll(covidToken,
+                declareInfectedButton,
+                deleteUserButton);
         debugActionsPane.setContent(regularActionsVbox);
     }
 
@@ -64,5 +69,9 @@ public class DebugActionsPane extends TitledPane {
 
     public Observable getObservableDeclareContact() {
         return declareContact;
+    }
+
+    public Observable getDeleteUserObservable() {
+        return deleteUser;
     }
 }
