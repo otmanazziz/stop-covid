@@ -1,6 +1,7 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator.controller;
 
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.UserApi;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.simulation.FakeTime;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.view.UserDebugView;
 
@@ -14,9 +15,12 @@ public class UserDebugController extends UserController {
      * Create a user debug controller, linking a user debug view to its model.
      * @param view
      * @param model
+     * @param userApi
      */
-    public UserDebugController(final UserDebugView view, final UserLocalModel model) {
-        super(view, model);
+    public UserDebugController(final UserDebugView view,
+                               final UserLocalModel model,
+                               final UserApi userApi) {
+        super(view, model, userApi);
         debugView = view;
 
         debugView.getSimulatedContactObservable().subscribe(() -> onSimulatedContact());
