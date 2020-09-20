@@ -16,7 +16,7 @@ public class CovidLocalUser implements UserLocalModel {
     private final String userToken;
     private boolean isRisky;
 
-    private final KeysManager personalKeysManager;
+    private final KeysManager ownKeysManager;
     private final KeysManager metKeysManager;
     private final KeysManager infectedKeysManager;
 
@@ -32,8 +32,8 @@ public class CovidLocalUser implements UserLocalModel {
     public CovidLocalUser(final String userToken) {
         this.userToken = userToken;
 
-        personalKeysManager = new DatedKeysCollection();
-        personalKeysManager.addKey(UUID.randomUUID().toString());
+        ownKeysManager = new DatedKeysCollection();
+        ownKeysManager.addKey(UUID.randomUUID().toString());
 
         metKeysManager = new DatedKeysCollection();
         metKeysManager.getObservableKeysUpdated().subscribe(() -> verifyIsRisky());
@@ -52,8 +52,8 @@ public class CovidLocalUser implements UserLocalModel {
     }
 
     @Override
-    public KeysManager getPersonalKeysManager() {
-        return personalKeysManager;
+    public KeysManager getOwnKeysManager() {
+        return ownKeysManager;
     }
 
     @Override

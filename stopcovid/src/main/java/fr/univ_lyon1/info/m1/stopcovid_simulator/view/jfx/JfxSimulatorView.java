@@ -107,7 +107,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
                     .stream()
                     .filter(model -> model != uModel)
                     .map(userLocalModel -> userLocalModel.
-                            getPersonalKeysManager().
+                            getOwnKeysManager().
                             getNewestKey().
                             getKey())
                     .collect(Collectors.toList()));

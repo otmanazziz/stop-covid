@@ -46,7 +46,7 @@ public class JfxUserView implements UserDebugView {
                 debugActions);
         gui.setContent(guiVbox);
 
-        user.getPersonalKeysManager().getObservableKeysAdded()
+        user.getOwnKeysManager().getObservableKeysAdded()
                 .subscribe(() -> onOwnKeysUpdated());
     }
 
@@ -110,6 +110,6 @@ public class JfxUserView implements UserDebugView {
         gui.setText("User #"
                 + user.getUserToken()
                 + " - active key:"
-                + user.getPersonalKeysManager().getNewestKey().getKey());
+                + user.getOwnKeysManager().getNewestKey().getKey());
     }
 }

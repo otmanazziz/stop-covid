@@ -36,7 +36,7 @@ public class DataViewerPane extends TitledPane {
         this.setExpanded(false);
 
         this.model = model;
-        model.getPersonalKeysManager().getObservableKeysUpdated()
+        model.getOwnKeysManager().getObservableKeysUpdated()
                 .subscribe(() -> onOwnKeysUpdated());
         model.getMetKeysManager().getObservableKeysUpdated()
                 .subscribe(() -> onMetKeysUpdated());
@@ -75,7 +75,7 @@ public class DataViewerPane extends TitledPane {
     }
 
     private void onOwnKeysUpdated() {
-        updateListViewWithDateKeys(ownKeysViewer, model.getPersonalKeysManager().getDatedKeys());
+        updateListViewWithDateKeys(ownKeysViewer, model.getOwnKeysManager().getDatedKeys());
     }
 
     private void onMetKeysUpdated() {

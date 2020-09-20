@@ -50,7 +50,7 @@ public class UserController {
     private void onDeclaredInfected() {
         String userToken = model.getUserToken();
         String covidToken = view.getCovidToken();
-        List<DatedKey> ownedDatedKeys = model.getPersonalKeysManager().getDatedKeys();
+        List<DatedKey> ownedDatedKeys = model.getOwnKeysManager().getDatedKeys();
         userApi.declareInfected(userToken, covidToken, ownedDatedKeys);
     }
 

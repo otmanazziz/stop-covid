@@ -34,7 +34,7 @@ public interface UserLocalModel {
      * Get the personal keys (own unique keys) manager.
      * @return
      */
-    KeysManager getPersonalKeysManager();
+    KeysManager getOwnKeysManager();
 
     /**
      * Get the manager of met keys (encountered foreign keys).
