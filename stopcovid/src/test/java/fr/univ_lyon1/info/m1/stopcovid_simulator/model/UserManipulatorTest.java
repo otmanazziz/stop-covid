@@ -9,7 +9,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.Simulator
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.ContactAmountRiskyFlagging;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.CovidLocalUser;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.user.UserLocalModel;
-import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.CovidServer;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerApi;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.SimulatedUserApi;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.RamUserDatabase;
@@ -23,6 +23,7 @@ import java.util.List;
 public class UserManipulatorTest {
 
     //TokensDatabase covidTokensDb = new RamTokensDatabase();
+    private ServerApi serverApi;
     private SimulatedUserApi userApi;
     private KeysManager infectedKeysManager;
     private UserDatabase userDb;
@@ -31,13 +32,14 @@ public class UserManipulatorTest {
 
     public UserManipulatorTest() throws Exception {
         this.userApi = new SimulatedUserApi();
+        this.serverApi = new ServerApi(this.userApi);
         this.infectedKeysManager = new DatedKeysCollection();
         this.userDb = new RamUserDatabase();
 
-        this.serverModel = new CovidServer.Builder()
+        this.serverModel = new ServerModel.Builder()
                 .withInfectedKeys(infectedKeysManager)
                 .withUserDatabase(userDb)
-                .withUserApi(userApi)
+                .withApi(serverApi)
                 .build();
 
         this.simulatorModel = new CovidSimulator();
@@ -75,27 +77,27 @@ public class UserManipulatorTest {
         simulatorModel.addUser(user3);
 
         //When
-        user1.getMetKeysManager().addKey(user2.getPersonalKeysManager().getNewestKey().getKey());
-        user1.getMetKeysManager().addKey(user3.getPersonalKeysManager().getNewestKey().getKey());
-        user3.getMetKeysManager().addKey(user2.getPersonalKeysManager().getNewestKey().getKey());
+        user1.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
+        user1.getMetKeysManager().addKey(user3.getOwnKeysManager().getNewestKey().getKey());
+        user3.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
 
         //Then
         assertEquals(simulatorModel.getUsers().size(), 3);
 
         assertEquals(simulatorModel.getUser(user1.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user2.getUserToken()).getPersonalKeysManager().getNewestKey().getKey())
+                simulatorModel.getUser(user2.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
                 , true);
 
         assertNotEquals(simulatorModel.getUser(user2.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user1.getUserToken()).getPersonalKeysManager().getNewestKey().getKey())
+                simulatorModel.getUser(user1.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
                 , true);
 
         assertEquals(simulatorModel.getUser(user1.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user3.getUserToken()).getPersonalKeysManager().getNewestKey().getKey())
+                simulatorModel.getUser(user3.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
                 , true);
 
         assertEquals(simulatorModel.getUser(user2.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user3.getUserToken()).getPersonalKeysManager().getNewestKey().getKey())
+                simulatorModel.getUser(user3.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
                 , false);
     }
 
@@ -111,22 +113,22 @@ public class UserManipulatorTest {
         simulatorModel.addUser(user1);
         simulatorModel.addUser(user2);
         simulatorModel.addUser(user3);
-        user1.getMetKeysManager().addKey(user2.getPersonalKeysManager().getNewestKey().getKey());
-        user1.getMetKeysManager().addKey(user3.getPersonalKeysManager().getNewestKey().getKey());
-        user3.getMetKeysManager().addKey(user2.getPersonalKeysManager().getNewestKey().getKey());
+        user1.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
+        user1.getMetKeysManager().addKey(user3.getOwnKeysManager().getNewestKey().getKey());
+        user3.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
 
         //When
-        userApi.declareInfected(user1.getUserToken(), "", user1.getPersonalKeysManager().getDatedKeys());
+        userApi.declareInfected(user1.getUserToken(), "", user1.getOwnKeysManager().getDatedKeys());
         List<String> newInfectedKeysList = userApi.getInfectedKeys();
         for (String key : newInfectedKeysList) {
             user2.getInfectedKeysManager().addKey(key, FakeTime.getInstance().getNow());
             user3.getInfectedKeysManager().addKey(key, FakeTime.getInstance().getNow());
         }
-        user2.getMetKeysManager().addKey(user1.getPersonalKeysManager().getNewestKey().getKey());
-        user3.getMetKeysManager().addKey(user2.getPersonalKeysManager().getNewestKey().getKey());
+        user2.getMetKeysManager().addKey(user1.getOwnKeysManager().getNewestKey().getKey());
+        user3.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
 
         //Then
-        assertEquals(userApi.getInfectedKeys().containsAll(user1.getPersonalKeysManager().getKeys()), true);
+        assertEquals(userApi.getInfectedKeys().containsAll(user1.getOwnKeysManager().getKeys()), true);
         assertEquals(user2.getIsRisky(), true);
         assertNotEquals(user3.getIsRisky(), true);
     }
