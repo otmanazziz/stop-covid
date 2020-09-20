@@ -16,6 +16,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.RamUserDat
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.User;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.UserDatabase;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.simulation.FakeTime;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -30,7 +31,8 @@ public class UserManipulatorTest {
     private ServerModel serverModel;
     private SimulatorModel simulatorModel;
 
-    public UserManipulatorTest() throws Exception {
+    @BeforeEach
+    public void setup() throws Exception {
         this.userApi = new SimulatedUserApi();
         this.serverApi = new ServerApi(this.userApi);
         this.infectedKeysManager = new DatedKeysCollection();
@@ -45,13 +47,32 @@ public class UserManipulatorTest {
         this.simulatorModel = new CovidSimulator();
     }
 
+    /**
+     * Create users by registering them on the server.
+     */
     @Test
-    public void createUsers() {
+    public void registerUsersOnServer() {
         //Given
-        User u1 = userDb.createUser();
-        User u2 = userDb.createUser();
-        UserLocalModel user1 = new CovidLocalUser(u1.getToken());
-        UserLocalModel user2 = new CovidLocalUser(u2.getToken());
+        String u1Token = userApi.register();
+        String u2Token = userApi.register();
+
+        //When
+
+        //Then
+        assertNotEquals(null, userDb.getUser(u1Token));
+        assertNotEquals(null, userDb.getUser(u2Token));
+        assertEquals(null, userDb.getUser("____DO NOT EXIST____"));
+    }
+
+    /**
+     * Register users, add them to the simulator model and check if they are there.
+     */
+    public void addUsersToSimulatorModel() {
+        //Given
+        String u1Token = userApi.register();
+        String u2Token = userApi.register();
+        UserLocalModel user1 = new CovidLocalUser(u1Token);
+        UserLocalModel user2 = new CovidLocalUser(u2Token);
 
         //When
         simulatorModel.addUser(user1);
@@ -60,9 +81,18 @@ public class UserManipulatorTest {
         //Then
         assertEquals(simulatorModel.getUsers().size(), 2);
         assertNotEquals(user1.getUserToken(), user2.getUserToken());
-        assertNotEquals(simulatorModel.getUser(user1.getUserToken()), simulatorModel.getUser(user2.getUserToken()));
+        assertNotEquals(simulatorModel.getUser(user1.getUserToken()),
+                simulatorModel.getUser(user2.getUserToken()));
+
+        assertEquals(simulatorModel.getUser(user1.getUserToken()), user1);
+        assertEquals(simulatorModel.getUser(user2.getUserToken()), user2);
+        assertEquals(simulatorModel.getUser("__INVALID TOKEN__"), null);
     }
 
+
+    /**
+     * Test making three users meet. u1 meets u2 & u3, u3 meets u2.
+     */
     @Test
     public void meetingUsers(){
         //Given
@@ -72,9 +102,6 @@ public class UserManipulatorTest {
         UserLocalModel user1 = new CovidLocalUser(token1);
         UserLocalModel user2 = new CovidLocalUser(token2);
         UserLocalModel user3 = new CovidLocalUser(token3);
-        simulatorModel.addUser(user1);
-        simulatorModel.addUser(user2);
-        simulatorModel.addUser(user3);
 
         //When
         user1.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
@@ -82,27 +109,30 @@ public class UserManipulatorTest {
         user3.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
 
         //Then
-        assertEquals(simulatorModel.getUsers().size(), 3);
+        assertEquals(user1.getMetKeysManager().getKeys().contains(
+                user2.getOwnKeysManager().getNewestKey().getKey()),
+                true);
 
-        assertEquals(simulatorModel.getUser(user1.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user2.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
-                , true);
+        assertNotEquals(user2.getMetKeysManager().getKeys().contains(
+                user1.getOwnKeysManager().getNewestKey().getKey()),
+                true);
 
-        assertNotEquals(simulatorModel.getUser(user2.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user1.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
-                , true);
+        assertEquals(user1.getMetKeysManager().getKeys().contains(
+                user3.getOwnKeysManager().getNewestKey().getKey()),
+                true);
 
-        assertEquals(simulatorModel.getUser(user1.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user3.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
-                , true);
-
-        assertEquals(simulatorModel.getUser(user2.getUserToken()).getMetKeysManager().getKeys().contains(
-                simulatorModel.getUser(user3.getUserToken()).getOwnKeysManager().getNewestKey().getKey())
-                , false);
+        assertEquals(user2.getMetKeysManager().getKeys().contains(
+                user3.getOwnKeysManager().getNewestKey().getKey()),
+                false);
     }
 
+    /**
+     * Make a user declare himself as infected, check other users' strategy fires the default
+     * risky flagging strategy. Also checks the infected user's own keys are contained in the
+     * list of infected keys given by the server.
+     */
     @Test
-    public void userDeclareInfected(){
+    public void userDeclareInfectedToServer(){
         //Given
         String token1 = userApi.register();
         String token2 = userApi.register();
@@ -118,7 +148,9 @@ public class UserManipulatorTest {
         user3.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
 
         //When
-        userApi.declareInfected(user1.getUserToken(), "", user1.getOwnKeysManager().getDatedKeys());
+        userApi.declareInfected(user1.getUserToken(),
+                "",
+                user1.getOwnKeysManager().getDatedKeys());
         List<String> newInfectedKeysList = userApi.getInfectedKeys();
         for (String key : newInfectedKeysList) {
             user2.getInfectedKeysManager().addKey(key, FakeTime.getInstance().getNow());
@@ -128,13 +160,17 @@ public class UserManipulatorTest {
         user3.getMetKeysManager().addKey(user2.getOwnKeysManager().getNewestKey().getKey());
 
         //Then
-        assertEquals(userApi.getInfectedKeys().containsAll(user1.getOwnKeysManager().getKeys()), true);
+        assertEquals(userApi.getInfectedKeys().containsAll(user1.getOwnKeysManager().getKeys()),
+                true);
         assertEquals(user2.getIsRisky(), true);
-        assertNotEquals(user3.getIsRisky(), true);
+        assertEquals(user3.getIsRisky(), false);
     }
 
+    /**
+     * Add users to the simulator's model, and checks if removing them does work.
+     */
     @Test
-    public void deleteUsers(){
+    public void deleteUsersFromSimulatorModel(){
         //Given
         String token1 = userApi.register();
         String token2 = userApi.register();
@@ -143,6 +179,7 @@ public class UserManipulatorTest {
         simulatorModel.addUser(user1);
         simulatorModel.addUser(user2);
 
+        // Preliminary then
         assertEquals(simulatorModel.getUsers().size(), 2);
         //When
 
@@ -154,4 +191,23 @@ public class UserManipulatorTest {
         assertEquals(simulatorModel.getUsers().contains(user1), false);
         assertEquals(simulatorModel.getUsers().contains(user2), true);
     }
+
+    @Test
+    public void riskyFlaggingStrategySwapping() {
+        //Given
+        String token1 = userApi.register();
+        UserLocalModel user1 = new CovidLocalUser(token1);
+        user1.setRiskyFlaggingStrategy(new ContactAmountRiskyFlagging(1));
+        String infectedKey = "dangerous";
+
+        //When
+        user1.getMetKeysManager().addKey(infectedKey);
+        user1.getInfectedKeysManager().addKey(infectedKey);
+
+        //Then
+        assertEquals(user1.getIsRisky(), true);
+        user1.setRiskyFlaggingStrategy(new ContactAmountRiskyFlagging(2));
+        assertEquals(user1.getIsRisky(), false);
+    }
+
 }
