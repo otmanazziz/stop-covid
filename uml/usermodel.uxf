@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>360</y>
+      <w>470</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*UserLocalModel*
+--
++ Observable getRiskyChangedObservable()
+
++ String getUserToken()
++ boolean getIsRisky()
+
++ void setRiskyFlaggingStrategy(RiskyFlaggingStrategy strategy)
++ KeysManager getOwnKeysManager()
++ KeysManager getMetKeysManager()
++ KeysManager getInfectedKeysManager()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>610</y>
+      <w>470</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*CovidLocalUser*
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>550</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>610</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+ownKeysManager</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>660</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+metKeysManager</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>710</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+infectedKeysManager</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>580</y>
+      <w>320</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*KeysManager*
+--
++ void addKey(String key)
++ void addKey(String key, Instant date)
++ void addKeys(List&lt;DatedKey&gt; keys)
++ List&lt;String&gt; getKeys()
++ List&lt;DatedKey&gt; getDatedKeys()
++ DatedKey getNewestKey()
+
++ Observable getObservableKeysUpdated();
++ Observable getObservableKeysAdded();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1150</x>
+      <y>640</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*RiskyFlaggingStrategy*
+--
++ boolean isRisky(UserLocalModel user)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1290</x>
+      <y>520</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>470</y>
+      <w>280</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*ContactAmountRiskyFlagging*
+--
+- int: requiredContactCount
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>650</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+</diagram>

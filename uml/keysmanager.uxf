@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>450</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;dataType&gt;&gt;
+*DatedKey*
+--
++ String getKey()
++ Instant getDate()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>980</x>
+      <y>390</y>
+      <w>320</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*KeysManager*
+--
++ void addKey(String key)
++ void addKey(String key, Instant date)
++ void addKeys(List&lt;DatedKey&gt; keys)
++ List&lt;String&gt; getKeys()
++ List&lt;DatedKey&gt; getDatedKeys()
++ DatedKey getNewestKey()
+
++ Observable getObservableKeysUpdated();
++ Observable getObservableKeysAdded();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>450</y>
+      <w>320</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*DatedKeyCollection*
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>450</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>470</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0...*</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

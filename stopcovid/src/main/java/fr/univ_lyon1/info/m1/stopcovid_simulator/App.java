@@ -1,6 +1,17 @@
 package fr.univ_lyon1.info.m1.stopcovid_simulator;
 
-import fr.univ_lyon1.info.m1.stopcovid_simulator.view.JfxView;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.controller.SimulatorController;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.data.DatedKeysCollection;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.data.KeysManager;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.CovidSimulator;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.SimulatorModel;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerApi;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerModel;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.SimulatedUserApi;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.RamUserDatabase;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.UserDatabase;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.view.SimulatorView;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.view.jfx.JfxSimulatorView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -8,16 +19,32 @@ import javafx.stage.Stage;
  * Main class for the application (structure imposed by JavaFX).
  */
 public class App extends Application {
-    static final int WIDTH = 600;
-    static final int HEIGHT = 600;
-    private static final int NB_USERS = 4;
+
 
     /**
      * With javafx, start() is called when the application is launched.
      */
     @Override
     public void start(final Stage stage) throws Exception {
-        new JfxView(stage, WIDTH, HEIGHT);
+        //TokensDatabase covidTokensDb = new RamTokensDatabase();
+        ServerApi serverApi = new ServerApi(new SimulatedUserApi());
+
+        KeysManager infectedKeysManager = new DatedKeysCollection();
+        UserDatabase userDb = new RamUserDatabase();
+
+        ServerModel serverModel = new ServerModel.Builder()
+                .withInfectedKeys(infectedKeysManager)
+                .withUserDatabase(userDb)
+                .withApi(serverApi)
+                .build();
+
+        SimulatorModel simulatorModel = new CovidSimulator();
+
+        SimulatorView simulatorView = new JfxSimulatorView(stage, serverModel, simulatorModel);
+
+        var simulatorController = new SimulatorController(simulatorModel,
+                simulatorView,
+                serverModel.getApi());
     }
 
     /**
