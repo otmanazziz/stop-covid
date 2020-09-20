@@ -5,7 +5,7 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.data.DatedKeysCollection;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.data.KeysManager;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.CovidSimulator;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.local.simulator.SimulatorModel;
-import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.CovidServer;
+import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerApi;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.ServerModel;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.SimulatedUserApi;
 import fr.univ_lyon1.info.m1.stopcovid_simulator.model.remote.storage.RamUserDatabase;
@@ -27,14 +27,15 @@ public class App extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
         //TokensDatabase covidTokensDb = new RamTokensDatabase();
-        SimulatedUserApi userApi = new SimulatedUserApi();
+        ServerApi serverApi = new ServerApi(new SimulatedUserApi());
+
         KeysManager infectedKeysManager = new DatedKeysCollection();
         UserDatabase userDb = new RamUserDatabase();
 
-        ServerModel serverModel = new CovidServer.Builder()
+        ServerModel serverModel = new ServerModel.Builder()
                 .withInfectedKeys(infectedKeysManager)
                 .withUserDatabase(userDb)
-                .withUserApi(userApi)
+                .withApi(serverApi)
                 .build();
 
         SimulatorModel simulatorModel = new CovidSimulator();
