@@ -119,7 +119,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
         UserLocalModel user = simulatorModel.getUser(token);
         JfxUserView userView = new JfxUserView(user);
         userView.getDeleteUserObservable().subscribe(() -> deleteUser.emit(token));
-        var controller = new UserDebugController(userView, user, serverModel.getUserApi());
+        var controller = new UserDebugController(userView, user, serverModel.getApi().getUserApi());
 
         userViewsVbox.getChildren().add(userView.getRoot());
         userViews.put(token, userView);

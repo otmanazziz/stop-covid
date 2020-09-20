@@ -43,7 +43,7 @@ public class App extends Application {
 
         var simulatorController = new SimulatorController(simulatorModel,
                 simulatorView,
-                serverModel);
+                serverModel.getApi());
     }
 
     /**
