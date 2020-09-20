@@ -7,13 +7,12 @@ import fr.univ_lyon1.info.m1.stopcovid_simulator.util.Observable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SimulatedUserApi implements UserApi {
+public class SimulatedUserApi extends UserApi {
 
     private ServerModel model;
 
-
     @Override
-    public void setModel(final ServerModel model) {
+    void setModel(final ServerModel model) {
         this.model = model;
     }
 
