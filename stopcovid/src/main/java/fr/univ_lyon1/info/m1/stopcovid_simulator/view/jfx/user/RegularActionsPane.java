@@ -71,6 +71,7 @@ public class RegularActionsPane extends TitledPane {
         for (RiskyStrategiesEnum rs : RiskyStrategiesEnum.values()) {
             strategyComboBox.getItems().add(rs.prettyName);
         }
+        strategyComboBox.getSelectionModel().selectFirst();
 
         riskyFlaggingVbox.getChildren().addAll(riskyFlaggingTitle, strategyComboBox);
 
