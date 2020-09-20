@@ -64,7 +64,7 @@ public class JfxSimulatorView extends VBox implements SimulatorView {
         usersScrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
 
-        Button testAddButton = new Button("ADD USER");
+        Button testAddButton = new Button("Ajouter un utilisateur");
         testAddButton.setOnMouseClicked(event -> addUserObservable.emit());
 
         root.getChildren().addAll(testAddButton, usersScrollpane);
